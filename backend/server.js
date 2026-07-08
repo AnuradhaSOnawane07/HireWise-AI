@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+const userRoutes = require("./routes/userRoutes");
+
 const authRoutes = require("./routes/authRoutes"); // <-- Import FIRST
 
 const app = express();
@@ -11,6 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoutes); // <-- Use AFTER importing
+app.use("/api/users", userRoutes);
 
 // MongoDB Connection
 mongoose
