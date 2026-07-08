@@ -3,26 +3,24 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
+const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const resumeRoutes = require("./routes/resumeRoutes");
-
-const authRoutes = require("./routes/authRoutes"); // <-- Import FIRST
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use("/api/auth", authRoutes); // <-- Use AFTER importing
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/resume", resumeRoutes);
 app.use("/uploads", express.static("uploads"));
 
 // MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
-  .catch((err) => console.error("❌ MongoDB Error:", err));
+const connectDB = require("./config/db");
+
+connectDB();
 
 app.get("/", (req, res) => {
   res.send("🚀 HireWise AI Backend Running...");

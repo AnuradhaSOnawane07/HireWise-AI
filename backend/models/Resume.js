@@ -8,6 +8,7 @@ const resumeSchema = new mongoose.Schema(
       required: true,
     },
 
+    // File Information
     fileName: {
       type: String,
       required: true,
@@ -32,6 +33,62 @@ const resumeSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+
+    // Parsed Resume Data
+    extractedText: {
+      type: String,
+      default: "",
+    },
+
+    name: {
+      type: String,
+      default: "",
+    },
+
+    email: {
+      type: String,
+      default: "",
+    },
+
+    phone: {
+      type: String,
+      default: "",
+    },
+
+    skills: [{
+      type: String,
+    }],
+
+    education: [{
+      type: String,
+    }],
+
+    experience: [{
+      type: String,
+    }],
+
+    projects: [{
+      type: String,
+    }],
+
+    certifications: [{
+      type: String,
+    }],
+
+    // AI Scores
+    atsScore: {
+      type: Number,
+      default: 0,
+    },
+
+    jobMatchScore: {
+      type: Number,
+      default: 0,
+    },
+
+    aiSuggestions: [{
+      type: String,
+    }],
   },
   {
     timestamps: true,
