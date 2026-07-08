@@ -86,9 +86,27 @@ const resumeSchema = new mongoose.Schema(
       default: 0,
     },
 
+    jobDescription: {
+  type: String,
+  default: "",
+},
+
+matchedSkills: [{
+  type: String,
+}],
+
+missingSkills: [{
+  type: String,
+}],
+
+recommendations: [{
+  type: String,
+}],
+
     aiSuggestions: [{
       type: String,
     }],
+    
   },
   {
     timestamps: true,

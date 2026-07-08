@@ -18,27 +18,36 @@ const extractResumeData = (text) => {
 
     // Skills
     const skillsList = [
-        "Java",
-        "Python",
-        "JavaScript",
-        "TypeScript",
-        "Angular",
-        "AngularJS",
-        "React",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "MySQL",
-        "SQL",
-        "HTML",
-        "CSS",
-        "Bootstrap",
-        "Git",
-        "Docker",
-        "AWS",
-        "C",
-        "C++"
-    ];
+  "Java",
+  "Python",
+  "JavaScript",
+  "TypeScript",
+  "Angular",
+  "AngularJS",
+  "React",
+  "Node.js",
+  "Express",
+  "MongoDB",
+  "MySQL",
+  "SQL",
+  "Spring Boot",
+  "Docker",
+  "AWS",
+  "Git",
+  "REST API",
+  "HTML",
+  "CSS",
+  "Bootstrap",
+  "Tailwind CSS",
+  "C",
+  "C++",
+  "Django",
+  ".NET",
+  "ASP.NET",
+  "Mongoose",
+  "JWT",
+  "GitHub"
+];
 
     const skills = skillsList.filter(skill =>
         text.toLowerCase().includes(skill.toLowerCase())
