@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const userRoutes = require("./routes/userRoutes");
+const resumeRoutes = require("./routes/resumeRoutes");
 
 const authRoutes = require("./routes/authRoutes"); // <-- Import FIRST
 
@@ -14,6 +15,8 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes); // <-- Use AFTER importing
 app.use("/api/users", userRoutes);
+app.use("/api/resume", resumeRoutes);
+app.use("/uploads", express.static("uploads"));
 
 // MongoDB Connection
 mongoose
