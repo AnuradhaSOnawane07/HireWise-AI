@@ -103,9 +103,28 @@ recommendations: [{
   type: String,
 }],
 
-    aiSuggestions: [{
-      type: String,
-    }],
+    aiAnalysis: {
+  atsScore: {
+    type: Number,
+    default: 0,
+  },
+
+  strengths: [{
+    type: String,
+  }],
+
+  weaknesses: [{
+    type: String,
+  }],
+
+  missingSkills: [{
+    type: String,
+  }],
+
+  suggestions: [{
+    type: String,
+  }]
+},
     
   },
   {
