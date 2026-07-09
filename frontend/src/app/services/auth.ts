@@ -1,4 +1,23 @@
-import { Service } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
-@Service()
-export class Auth {}
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+
+  api = environment.apiUrl;
+
+  constructor(private http: HttpClient) {}
+
+  login(data: any) {
+
+    return this.http.post(
+      `${this.api}/auth/login`,
+      data
+    );
+
+  }
+
+}
