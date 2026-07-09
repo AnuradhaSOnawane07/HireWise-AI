@@ -1,0 +1,170 @@
+<div
+class="fixed
+left-0
+top-0
+h-screen
+bg-slate-900
+transition-all
+duration-300
+shadow-2xl"
+
+[class.w-72]="!collapsed"
+[class.w-24]="collapsed">
+
+    <!-- Logo -->
+
+    <div
+    class="h-20
+    flex
+    items-center
+    justify-between
+    px-5">
+
+        <div class="flex items-center gap-3">
+
+            <div
+            class="w-12
+            h-12
+            rounded-xl
+            bg-gradient-to-r
+            from-blue-600
+            to-purple-600
+            flex
+            items-center
+            justify-center
+            text-white
+            font-bold
+            text-xl">
+
+                H
+
+            </div>
+
+            @if(!collapsed){
+
+                <div>
+
+                    <h2
+                    class="text-white
+                    text-xl
+                    font-bold">
+
+                        HireWise AI
+
+                    </h2>
+
+                    <p
+                    class="text-gray-400
+                    text-xs">
+
+                        Career Assistant
+
+                    </p>
+
+                </div>
+
+            }
+
+        </div>
+
+        <button
+
+        (click)="toggleSidebar()"
+
+        class="text-white">
+
+            <span class="material-symbols-outlined">
+
+                menu
+
+            </span>
+
+        </button>
+
+    </div>
+
+    <!-- Menu -->
+
+    <div class="px-4 mt-6">
+
+        @for(item of menuItems;track item){
+
+            <a
+
+            [routerLink]="item.route"
+
+            routerLinkActive="active"
+
+            class="menu-item">
+
+                <span class="material-symbols-outlined">
+
+                    {{item.icon}}
+
+                </span>
+
+                @if(!collapsed){
+
+                    <span>
+
+                        {{item.title}}
+
+                    </span>
+
+                }
+
+            </a>
+
+        }
+
+    </div>
+
+    <!-- Bottom -->
+
+    <div
+    class="absolute
+    bottom-0
+    w-full
+    border-t
+    border-slate-700
+    p-5">
+
+        <div class="flex items-center gap-3">
+
+            <img
+
+            src="https://i.pravatar.cc/100"
+
+            class="w-10
+            h-10
+            rounded-full">
+
+            @if(!collapsed){
+
+                <div>
+
+                    <h3
+                    class="text-white
+                    font-medium">
+
+                        Anuradha
+
+                    </h3>
+
+                    <p
+                    class="text-gray-400
+                    text-xs">
+
+                        Software Developer
+
+                    </p>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+
+</div>
