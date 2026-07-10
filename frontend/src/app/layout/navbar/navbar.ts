@@ -17,9 +17,11 @@ export class Navbar {
 
   logout() {
 
-    localStorage.removeItem('token');
+    console.log("Logout Clicked");
 
-    this.router.navigate(['/login']);
+    localStorage.clear();
+
+    this.router.navigateByUrl('/login');
 
   }
 
