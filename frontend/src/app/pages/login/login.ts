@@ -3,12 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [FormsModule, RouterModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
+  
 })
 export class Login {
 
@@ -31,28 +33,19 @@ export class Login {
     };
 
     this.authService.login(data).subscribe({
+  next: (res: any) => {
 
-      next: (res: any) => {
+    localStorage.setItem('token', res.token);
 
-        console.log(res);
+    alert("Login Successful");
 
-        localStorage.setItem("token", res.token);
+    this.router.navigate(['/dashboard']);
+  },
 
-        alert("Login Successful");
-
-        this.router.navigate(['/dashboard']);
-
-      },
-
-      error: (err) => {
-
-        console.log(err);
-
-        alert(err.error.message || "Login Failed");
-
-      }
-
-    });
+  error: (err) => {
+    alert(err.error.message || "Login Failed");
+  }
+});
 
   }
 

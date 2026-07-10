@@ -3,6 +3,8 @@ import { Routes } from '@angular/router';
 import { Login } from './pages/login/login';
 import { DashboardLayout } from './layout/dashboard-layout/dashboard-layout';
 import { Dashboard } from './pages/dashboard/dashboard';
+import { authGuard } from './guards/auth-guard';
+
 
 export const routes: Routes = [
   {
@@ -22,9 +24,10 @@ export const routes: Routes = [
     component: DashboardLayout,
     children: [
       {
-        path: 'dashboard',
-        component: Dashboard
-      }
+  path: 'dashboard',
+  component: Dashboard,
+  canActivate: [authGuard]
+}
     ]
   }
 ];

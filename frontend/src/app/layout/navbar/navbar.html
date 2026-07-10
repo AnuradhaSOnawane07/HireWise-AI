@@ -62,34 +62,30 @@ justify-between">
 
         <!-- Notification -->
 
-        <button class="relative">
+        <div class="flex items-center gap-4">
 
-            <span
-            class="material-symbols-outlined text-3xl text-slate-600">
+    <button class="relative">
 
-                notifications
+        🔔
 
-            </span>
+        <span
+        class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full text-xs px-2">
 
-            <span
-            class="absolute
-            -top-1
-            -right-1
-            w-5
-            h-5
-            rounded-full
-            bg-red-500
-            text-white
-            text-xs
-            flex
-            justify-center
-            items-center">
+            {{notifications}}
 
-                {{notifications}}
+        </span>
 
-            </span>
+    </button>
 
-        </button>
+    <button
+        (click)="logout()"
+        class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">
+
+        Logout
+
+    </button>
+
+</div>
 
         <!-- Theme -->
 
@@ -137,6 +133,7 @@ justify-between">
                 expand_more
 
             </span>
+            
 
         </div>
 
