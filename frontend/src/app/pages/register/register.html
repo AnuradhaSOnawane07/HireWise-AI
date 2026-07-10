@@ -1,1 +1,220 @@
-<p>register works!</p>
+<div class="register-page">
+
+    <!-- Left Panel -->
+
+    <div class="left-panel">
+
+        <div class="overlay">
+
+            <h1>HireWise AI</h1>
+
+            <h2>Start Your Career Journey 🚀</h2>
+
+            <p>
+                Create your account to access AI Resume Analysis,
+                ATS Score, Job Matching and Mock Interviews.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <span class="material-symbols-outlined">
+                        description
+                    </span>
+
+                    Resume Analysis
+                </div>
+
+                <div class="feature">
+                    <span class="material-symbols-outlined">
+                        analytics
+                    </span>
+
+                    ATS Score
+                </div>
+
+                <div class="feature">
+                    <span class="material-symbols-outlined">
+                        work
+                    </span>
+
+                    Job Matching
+                </div>
+
+                <div class="feature">
+                    <span class="material-symbols-outlined">
+                        forum
+                    </span>
+
+                    AI Interview
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Panel -->
+
+    <div class="right-panel">
+
+        <div class="register-card">
+
+            <h2>Create Account</h2>
+
+            <p>Join HireWise AI</p>
+
+            <div
+            class="error"
+            *ngIf="errorMessage">
+
+                {{errorMessage}}
+
+            </div>
+
+            <div
+            class="success"
+            *ngIf="successMessage">
+
+                {{successMessage}}
+
+            </div>
+
+            <!-- Full Name -->
+
+            <div class="input-group">
+
+                <label>Full Name</label>
+
+                <input
+
+                type="text"
+
+                name="fullName"
+
+                [(ngModel)]="fullName"
+
+                placeholder="Enter Full Name">
+
+            </div>
+
+            <!-- Email -->
+
+            <div class="input-group">
+
+                <label>Email</label>
+
+                <input
+
+                type="email"
+
+                name="email"
+
+                [(ngModel)]="email"
+
+                placeholder="Enter Email">
+
+            </div>
+
+            <!-- Password -->
+
+            <div class="input-group">
+
+                <label>Password</label>
+
+                <div class="password-box">
+
+                    <input
+
+                    [type]="showPassword ? 'text':'password'"
+
+                    name="password"
+
+                    [(ngModel)]="password"
+
+                    placeholder="Enter Password">
+
+                    <button
+
+                    type="button"
+
+                    (click)="togglePassword()">
+
+                        <span class="material-symbols-outlined">
+
+                            {{showPassword ? 'visibility_off':'visibility'}}
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Confirm Password -->
+
+            <div class="input-group">
+
+                <label>Confirm Password</label>
+
+                <div class="password-box">
+
+                    <input
+
+                    [type]="showConfirmPassword ? 'text':'password'"
+
+                    name="confirmPassword"
+
+                    [(ngModel)]="confirmPassword"
+
+                    placeholder="Confirm Password">
+
+                    <button
+
+                    type="button"
+
+                    (click)="toggleConfirmPassword()">
+
+                        <span class="material-symbols-outlined">
+
+                            {{showConfirmPassword ? 'visibility_off':'visibility'}}
+
+                        </span>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+
+            class="register-btn"
+
+            (click)="register()"
+
+            [disabled]="loading">
+
+                {{loading ? 'Creating Account...' : 'Create Account'}}
+
+            </button>
+
+            <p class="login">
+
+                Already have an account?
+
+                <a routerLink="/login">
+
+                    Login
+
+                </a>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>

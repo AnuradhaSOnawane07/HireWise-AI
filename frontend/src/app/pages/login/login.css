@@ -1,68 +1,524 @@
-body{
+/* ==========================
+   LOGIN PAGE
+========================== */
+
+*{
     margin:0;
-    font-family:Inter,sans-serif;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.login-container{
-    height:100vh;
+.login-page{
+
     display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+
+    min-height:100vh;
+
+    background:#020617;
+
+    color:white;
+
+    font-family:'Inter',sans-serif;
+
 }
+
+/* ==========================
+   LEFT PANEL
+========================== */
+
+.left-panel{
+
+    width:50%;
+
+    background:
+    linear-gradient(
+    135deg,
+    #2563EB,
+    #7C3AED);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:60px;
+
+}
+
+.overlay{
+
+    max-width:500px;
+
+}
+
+.overlay h1{
+
+    font-size:52px;
+
+    font-weight:800;
+
+    margin-bottom:15px;
+
+}
+
+.overlay h2{
+
+    font-size:30px;
+
+    margin-bottom:25px;
+
+}
+
+.overlay p{
+
+    color:#E2E8F0;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    margin-bottom:50px;
+
+}
+
+.features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+.feature{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    font-size:20px;
+
+}
+
+.feature span{
+
+    font-size:32px;
+
+}
+
+/* ==========================
+   RIGHT PANEL
+========================== */
+
+.right-panel{
+
+    width:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#020617;
+
+}
+
+/* ==========================
+   LOGIN CARD
+========================== */
 
 .login-card{
-    width:400px;
-    background:white;
-    border-radius:20px;
-    padding:40px;
-    box-shadow:0 15px 40px rgba(0,0,0,.15);
+
+    width:460px;
+
+    background:#0F172A;
+
+    border:1px solid #1E293B;
+
+    border-radius:24px;
+
+    padding:45px;
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.45);
+
 }
 
-.login-card h1{
-    margin:0;
-    text-align:center;
+.login-card h2{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
 }
 
 .login-card p{
-    text-align:center;
-    color:#64748b;
+
+    color:#94A3B8;
+
+    margin-bottom:30px;
+
 }
+
+/* ==========================
+   INPUT
+========================== */
 
 .input-group{
-    margin-top:20px;
+
+    margin-bottom:22px;
+
 }
 
-label{
+.input-group label{
+
     display:block;
-    margin-bottom:8px;
+
+    margin-bottom:10px;
+
+    color:#CBD5E1;
+
     font-weight:600;
+
 }
 
-input{
-    width:100%;
-    padding:14px;
-    border:1px solid #d1d5db;
-    border-radius:10px;
-    font-size:15px;
-}
+.input-group input{
 
-button{
     width:100%;
-    margin-top:25px;
-    padding:14px;
+
+    padding:15px;
+
     border:none;
-    border-radius:10px;
-    background:#2563eb;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#1E293B;
+
     color:white;
+
     font-size:16px;
-    cursor:pointer;
+
+    border:1px solid transparent;
+
+    transition:.3s;
+
 }
 
-button:hover{
-    background:#1d4ed8;
+.input-group input:focus{
+
+    border-color:#3B82F6;
+
 }
+
+/* ==========================
+   PASSWORD
+========================== */
+
+.password-box{
+
+    position:relative;
+
+}
+
+.password-box input{
+
+    padding-right:55px;
+
+}
+
+.password-box button{
+
+    position:absolute;
+
+    right:15px;
+
+    top:12px;
+
+    background:none;
+
+    border:none;
+
+    color:#94A3B8;
+
+    cursor:pointer;
+
+}
+
+/* ==========================
+   REMEMBER
+========================== */
+
+.remember{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:28px;
+
+    font-size:14px;
+
+}
+
+.remember label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#CBD5E1;
+
+}
+
+.remember a{
+
+    color:#60A5FA;
+
+    text-decoration:none;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.login-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563EB,
+    #7C3AED);
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+
+    0 12px 30px rgba(37,99,235,.45);
+
+}
+
+.login-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================
+   REGISTER
+========================== */
 
 .register{
-    margin-top:20px;
+
+    text-align:center;
+
+    margin-top:30px;
+
+}
+
+.register a{
+
+    color:#60A5FA;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   ERROR
+========================== */
+
+.error{
+
+    background:#7F1D1D;
+
+    color:#FECACA;
+
+    border:1px solid #DC2626;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    margin-bottom:20px;
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1000px){
+
+.left-panel{
+
+display:none;
+
+}
+
+.right-panel{
+
+width:100%;
+
+padding:30px;
+
+}
+
+.login-card{
+
+width:100%;
+
+max-width:500px;
+
+}
+
+}
+
+/* Divider */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:25px 0;
+
+    color:#94A3B8;
+
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#334155;
+
+}
+
+.divider span{
+
+    margin:0 15px;
+
+}
+
+/* Google Button */
+
+.google-btn{
+
+    width:100%;
+
+    background:white;
+
+    color:#111827;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.google-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.2);
+
+}
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:25px 0;
+
+    color:#94A3B8;
+
+}
+
+.divider::before,
+.divider::after{
+
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#334155;
+
+}
+
+.divider span{
+
+    margin:0 15px;
+
 }

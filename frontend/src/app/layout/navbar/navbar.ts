@@ -13,15 +13,24 @@ export class Navbar {
 
   notifications = 3;
 
+  isProfileOpen = false;
+
+  user = {
+    name: 'Anuradha',
+    role: 'Student'
+  };
+
   constructor(private router: Router) {}
+
+  toggleProfile() {
+    this.isProfileOpen = !this.isProfileOpen;
+  }
 
   logout() {
 
-    console.log("Logout Clicked");
+    localStorage.removeItem('token');
 
-    localStorage.clear();
-
-    this.router.navigateByUrl('/login');
+    this.router.navigate(['/login']);
 
   }
 

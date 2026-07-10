@@ -6,6 +6,7 @@ display:block;
 
 .menu-item{
 
+background:#0F172A;    
 display:flex;
 
 align-items:center;
@@ -38,11 +39,8 @@ transform:translateX(6px);
 
 .active{
 
-background:linear-gradient(
-90deg,
-#2563EB,
-#7C3AED
-);
+background:#2563EB;
+color:white;
 
 }
 
