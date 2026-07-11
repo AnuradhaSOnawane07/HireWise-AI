@@ -41,11 +41,13 @@ export class Login implements AfterViewInit {
 ) {
 
   if (
-    localStorage.getItem("token") ||
-    sessionStorage.getItem("token")
-  ) {
-    this.router.navigate(['/dashboard']);
-  }
+  localStorage.getItem('token') ||
+  sessionStorage.getItem('token')
+) {
+
+  this.router.navigate(['/dashboard']);
+
+}
 
 }
 

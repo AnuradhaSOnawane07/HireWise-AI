@@ -27,3 +27,57 @@ box-shadow:0 0 0 4px rgba(37,99,235,.15);
 user-select:none;
 
 }
+
+.menu-item{
+
+width:100%;
+
+padding:15px 22px;
+
+text-align:left;
+
+transition:.3s;
+
+cursor:pointer;
+
+background:white;
+
+border:none;
+
+font-size:15px;
+
+}
+
+.menu-item:hover{
+
+background:#F8FAFC;
+
+padding-left:30px;
+
+}
+
+.avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    border:2px solid white;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+
+}
