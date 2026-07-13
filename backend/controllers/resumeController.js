@@ -5,7 +5,7 @@ const calculateATSScore = require("../services/atsScoreService");
 const matchResumeWithJD = require("../services/jobMatchService");
 const analyzeResumeAI = require("../services/geminiService");
 
-const aiResult = await analyzeResumeAI(extractedText);
+
 
 resume.aiAnalysis = aiResult;
 exports.uploadResume = async (req, res) => {
@@ -28,7 +28,7 @@ exports.uploadResume = async (req, res) => {
 
     // Parse PDF
     const extractedText = await parseResume(req.file.path);
-
+    const aiResult = await analyzeResumeAI(extractedText);
     // Extract Resume Details
     const parsedData = extractResumeData(extractedText);
 
@@ -51,12 +51,10 @@ await resume.save();
     res.status(201).json({
     success: true,
     message: "Resume uploaded successfully",
-
     atsScore: ats.total,
-
     scoreBreakdown: ats.breakdown,
-
-    resume
+    resume,
+    aiAnalysis: JSON.parse(aiResult)
 });
   } catch (error) {
     console.error(error);
