@@ -1,74 +1,229 @@
-<!-- Hero -->
+<!-- ================= HERO ================= -->
 
-<div
-class="bg-gradient-to-r
-from-blue-600
-to-purple-600
-rounded-3xl
-p-10
-text-white">
+<div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-10 text-white shadow-xl">
 
     <h1 class="text-5xl font-bold">
-
-        Welcome Back 👋
-
+        {{ greeting }}, {{ user?.fullName }} 👋
     </h1>
 
-    <p class="mt-4 text-xl">
+    <p class="mt-3 text-lg opacity-90">
+        {{ today }}
+    </p>
 
-        AI Powered Resume Analyzer
-
+    <p class="mt-6 text-xl">
+        Welcome back to <b>HireWise AI</b>.
+        Analyze resumes, improve ATS scores and prepare for interviews.
     </p>
 
     <button
-    class="mt-8
-    bg-white
-    text-blue-600
-    px-6
-    py-3
-    rounded-xl
-    font-semibold">
+(click)="goToResumeUpload()"
+class="mt-8 bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:scale-105 transition">
 
-        Upload Resume
+📄 Upload Resume
 
-    </button>
+</button>
 
 </div>
 
-<!-- Cards -->
+<!-- ================= STATS ================= -->
 
-<div class="grid grid-cols-4 gap-6 mt-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
 
-    <app-stat-card
-        title="ATS Score"
-        value="88%"
-        subtitle="Excellent"
-        icon="analytics"
-        color="bg-blue-600">
-    </app-stat-card>
+    <div class="bg-white rounded-2xl shadow-lg p-6">
 
-    <app-stat-card
-        title="Job Match"
-        value="76%"
-        subtitle="Matched"
-        icon="work"
-        color="bg-green-600">
-    </app-stat-card>
+        <p class="text-slate-500">
+            ATS Score
+        </p>
 
-    <app-stat-card
-        title="Resume"
-        value="1"
-        subtitle="Uploaded"
-        icon="description"
-        color="bg-purple-600">
-    </app-stat-card>
+        <h2 class="text-4xl font-bold text-blue-600 mt-3">
+            88%
+        </h2>
 
-    <app-stat-card
-        title="Interview"
-        value="24"
-        subtitle="Questions"
-        icon="forum"
-        color="bg-orange-500">
-    </app-stat-card>
+        <span class="text-green-600 font-medium">
+            Excellent
+        </span>
+
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+
+        <p class="text-slate-500">
+            Resume Score
+        </p>
+
+        <h2 class="text-4xl font-bold text-purple-600 mt-3">
+            91%
+        </h2>
+
+        <span class="text-green-600 font-medium">
+            Strong
+        </span>
+
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+
+        <p class="text-slate-500">
+            Job Matches
+        </p>
+
+        <h2 class="text-4xl font-bold text-green-600 mt-3">
+            24
+        </h2>
+
+        <span class="text-green-600 font-medium">
+            Available
+        </span>
+
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+
+        <p class="text-slate-500">
+            Interviews
+        </p>
+
+        <h2 class="text-4xl font-bold text-orange-500 mt-3">
+            6
+        </h2>
+
+        <span class="text-orange-600 font-medium">
+            Completed
+        </span>
+
+    </div>
+
+</div>
+
+<!-- ================= SECOND ROW ================= -->
+
+<div class="grid lg:grid-cols-2 gap-8 mt-8">
+
+    <!-- Recent Activity -->
+
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+
+        <h2 class="text-2xl font-bold mb-6">
+            Recent Activity
+        </h2>
+
+        <div class="space-y-5">
+
+            <div>
+                ✅ Resume Uploaded
+            </div>
+
+            <div>
+                🤖 AI Resume Analysis Completed
+            </div>
+
+            <div>
+                🎤 Mock Interview Completed
+            </div>
+
+            <div>
+                📊 ATS Score Improved
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Quick Actions -->
+
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+
+    <h2 class="text-2xl font-bold mb-6">
+        Quick Actions
+    </h2>
+
+    <div class="grid grid-cols-2 gap-5">
+
+        <div
+        (click)="goToResumeUpload()"
+        class="cursor-pointer bg-blue-600 text-white rounded-2xl p-6 hover:scale-105 transition">
+
+            <div class="text-4xl mb-3">📄</div>
+
+            <h3 class="text-xl font-semibold">
+                Upload Resume
+            </h3>
+
+            <p class="text-sm opacity-80 mt-2">
+                Analyze your resume with AI
+            </p>
+
+        </div>
+
+        <div
+        class="cursor-pointer bg-green-600 text-white rounded-2xl p-6 hover:scale-105 transition">
+
+            <div class="text-4xl mb-3">🤖</div>
+
+            <h3 class="text-xl font-semibold">
+                AI Interview
+            </h3>
+
+            <p class="text-sm opacity-80 mt-2">
+                Practice mock interviews
+            </p>
+
+        </div>
+
+        <div
+        class="cursor-pointer bg-purple-600 text-white rounded-2xl p-6 hover:scale-105 transition">
+
+            <div class="text-4xl mb-3">💼</div>
+
+            <h3 class="text-xl font-semibold">
+                Job Matching
+            </h3>
+
+            <p class="text-sm opacity-80 mt-2">
+                Find matching jobs
+            </p>
+
+        </div>
+
+        <div
+        class="cursor-pointer bg-orange-500 text-white rounded-2xl p-6 hover:scale-105 transition">
+
+            <div class="text-4xl mb-3">📈</div>
+
+            <h3 class="text-xl font-semibold">
+                Analytics
+            </h3>
+
+            <p class="text-sm opacity-80 mt-2">
+                View your progress
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- ================= PROGRESS ================= -->
+
+<div class="bg-white rounded-2xl shadow-lg p-8 mt-8">
+
+    <h2 class="text-2xl font-bold mb-6">
+
+        Resume Progress
+
+    </h2>
+
+    <div class="w-full bg-slate-200 rounded-full h-6">
+
+        <div
+        class="bg-blue-600 h-6 rounded-full text-white text-center"
+
+        style="width:91%;">
+
+            91%
+
+        </div>
+
+    </div>
 
 </div>

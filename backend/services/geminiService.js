@@ -2,26 +2,25 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.5-flash",
-});
-
 async function analyzeResume(resumeText) {
-  const prompt = `
-You are an expert ATS Resume Analyzer.
 
-Analyze the following resume.
+    const model = genAI.getGenerativeModel({
+        model: "gemini-2.5-flash"
+    });
 
-Return ONLY valid JSON.
+    const prompt = `
+You are an ATS Resume Reviewer.
 
-Format:
+Analyze this resume.
+
+Return ONLY JSON.
 
 {
-  "atsScore": number,
-  "strengths": [],
-  "weaknesses": [],
-  "missingSkills": [],
-  "suggestions": []
+"summary":"",
+"strengths":[],
+"weaknesses":[],
+"suggestions":[],
+"atsScore":0
 }
 
 Resume:
@@ -29,30 +28,10 @@ Resume:
 ${resumeText}
 `;
 
-  const result = await model.generateContent(prompt);
+    const result = await model.generateContent(prompt);
 
-  const response = result.response.text();
+    return result.response.text();
 
-  const cleaned = response
-    .replace(/```json/g, "")
-    .replace(/```/g, "")
-    .trim();
-
-  try {
-    return JSON.parse(cleaned);
-  } catch (error) {
-    console.error("Gemini returned invalid JSON:", cleaned);
-
-    return {
-      atsScore: 0,
-      strengths: [],
-      weaknesses: [],
-      missingSkills: [],
-      suggestions: [
-        "AI response could not be parsed. Please try again."
-      ]
-    };
-  }
 }
 
 module.exports = analyzeResume;

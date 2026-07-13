@@ -1,0 +1,131 @@
+<div class="analysis-page">
+
+    <div class="header">
+
+        <h1>Resume Analysis</h1>
+
+        <p>AI Powered Resume Evaluation</p>
+
+    </div>
+
+    <!-- ATS -->
+
+    <div class="score-card">
+
+        <h2>ATS SCORE</h2>
+
+        <div class="score-circle">
+
+            {{analysis?.atsScore}}%
+
+        </div>
+
+    </div>
+
+    <!-- Personal -->
+
+    <div class="card">
+
+        <h2>👤 Personal Details</h2>
+
+        <p><b>Name :</b> {{analysis?.resume?.name}}</p>
+
+        <p><b>Email :</b> {{analysis?.resume?.email}}</p>
+
+        <p><b>Phone :</b> {{analysis?.resume?.phone}}</p>
+
+    </div>
+
+    <!-- Skills -->
+
+    <div class="card">
+
+        <h2>🛠 Skills</h2>
+
+        <div class="skills">
+
+            <span
+            *ngFor="let skill of analysis?.resume?.skills">
+
+                {{skill}}
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- Education -->
+
+    <div class="card">
+
+        <h2>🎓 Education</h2>
+
+        <p>
+
+            {{analysis?.resume?.education}}
+
+        </p>
+
+    </div>
+
+    <!-- Projects -->
+
+    <div class="card">
+
+        <h2>🚀 Projects</h2>
+
+        <p>
+
+            {{analysis?.resume?.projects}}
+
+        </p>
+
+    </div>
+
+    <!-- Score Breakdown -->
+
+    <div class="card">
+
+        <h2>📊 Score Breakdown</h2>
+
+        <div
+        *ngFor="let item of analysis?.scoreBreakdown | keyvalue">
+
+            <p>
+
+                {{item.key}}
+
+                <span class="value">
+
+                    {{item.value}}
+
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- AI Suggestions -->
+
+    <div class="card">
+
+        <h2>💡 AI Suggestions</h2>
+
+        <ul>
+
+            <li>✔ Improve Professional Summary</li>
+
+            <li>✔ Add Quantified Achievements</li>
+
+            <li>✔ Add Certifications</li>
+
+            <li>✔ Add Docker & AWS Skills</li>
+
+        </ul>
+
+    </div>
+
+</div>

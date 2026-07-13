@@ -1,0 +1,73 @@
+<div class="upload-page">
+
+    <div class="upload-card">
+
+        <h1>📄 Upload Resume</h1>
+
+        <p>
+
+            Upload your Resume in PDF or DOCX format.
+
+        </p>
+
+        <label class="upload-box">
+
+            <input
+  type="file"
+  accept=".pdf,.doc,.docx"
+  (change)="onFileSelected($event)"
+  hidden>
+
+            <div>
+
+                <h2>
+
+                    📄
+
+                </h2>
+
+                <h3>
+
+                    Click to Upload Resume
+
+                </h3>
+
+                <p>
+
+                    PDF • DOC • DOCX
+
+                </p>
+
+            </div>
+
+        </label>
+
+        <div
+        *ngIf="selectedFile"
+        class="selected-file">
+
+            <strong>
+
+                Selected File
+
+            </strong>
+
+            <p>
+
+                {{selectedFile.name}}
+
+            </p>
+
+        </div>
+
+       <button
+class="upload-btn"
+(click)="analyzeResume()">
+
+{{ loading ? 'Analyzing...' : 'Analyze Resume' }}
+
+</button>
+
+    </div>
+
+</div>

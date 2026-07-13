@@ -3,6 +3,11 @@ const parseResume = require("../services/resumeParser");
 const extractResumeData = require("../services/resumeExtractor");
 const calculateATSScore = require("../services/atsScoreService");
 const matchResumeWithJD = require("../services/jobMatchService");
+const analyzeResumeAI = require("../services/geminiService");
+
+const aiResult = await analyzeResumeAI(extractedText);
+
+resume.aiAnalysis = aiResult;
 exports.uploadResume = async (req, res) => {
   try {
     if (!req.file) {
@@ -104,5 +109,17 @@ exports.matchJobDescription = async (req, res) => {
     success: false,
     message: error.message,
   });
+
+  res.json({
+
+    success:true,
+
+    atsScore: ats.total,
+
+    resume,
+
+    aiAnalysis: JSON.parse(aiResult)
+
+});
 }
 };
