@@ -7,9 +7,10 @@ const analyzeResumeAI = require("../services/geminiService");
 
 
 
-resume.aiAnalysis = aiResult;
+
 exports.uploadResume = async (req, res) => {
   try {
+
     if (!req.file) {
       return res.status(400).json({
         success: false,
@@ -28,7 +29,12 @@ exports.uploadResume = async (req, res) => {
 
     // Parse PDF
     const extractedText = await parseResume(req.file.path);
+
+    // Gemini AI Analysis
     const aiResult = await analyzeResumeAI(extractedText);
+
+    resume.aiAnalysis = JSON.parse(aiResult);
+
     // Extract Resume Details
     const parsedData = extractResumeData(extractedText);
 
@@ -37,32 +43,34 @@ exports.uploadResume = async (req, res) => {
     resume.phone = parsedData.phone;
     resume.skills = parsedData.skills;
     resume.name = parsedData.name;
-resume.education = parsedData.education;
-resume.projects = parsedData.projects;
-resume.experience = parsedData.experience;
-const ats = calculateATSScore(resume);
+    resume.education = parsedData.education;
+    resume.projects = parsedData.projects;
+    resume.experience = parsedData.experience;
 
-resume.atsScore = ats.total;
+    const ats = calculateATSScore(resume);
 
-await resume.save();
+    resume.atsScore = ats.total;
 
-   
+    await resume.save();
 
     res.status(201).json({
-    success: true,
-    message: "Resume uploaded successfully",
-    atsScore: ats.total,
-    scoreBreakdown: ats.breakdown,
-    resume,
-    aiAnalysis: JSON.parse(aiResult)
-});
+      success: true,
+      message: "Resume uploaded successfully",
+      atsScore: ats.total,
+      scoreBreakdown: ats.breakdown,
+      resume,
+      aiAnalysis: JSON.parse(aiResult)
+    });
+
   } catch (error) {
-    console.error(error);
+
+    console.error("Upload Resume Error:", error);
 
     res.status(500).json({
       success: false,
-      message: "Server Error",
+      message: error.message
     });
+
   }
 };
 
@@ -101,6 +109,7 @@ exports.matchJobDescription = async (req, res) => {
     });
 
   } catch (error) {
+
   console.error("Match Job Error:", error);
 
   res.status(500).json({
@@ -108,16 +117,5 @@ exports.matchJobDescription = async (req, res) => {
     message: error.message,
   });
 
-  res.json({
-
-    success:true,
-
-    atsScore: ats.total,
-
-    resume,
-
-    aiAnalysis: JSON.parse(aiResult)
-
-});
 }
 };
